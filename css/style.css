@@ -1,0 +1,78 @@
+body {
+  font-family: Arial, sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  margin: 0;
+  background-color: #6a1b9a;
+}
+
+.stepper-container {
+  display: flex;
+  justify-content: center;
+  background: white;
+  padding: 10px;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px;
+}
+
+.step {
+  padding: 12px 18px;
+  border: none;
+  margin: 0 5px;
+  font-size: 14px;
+  cursor: pointer;
+  background: #e0e0e0;
+  color: #333;
+  border-radius: 20px;
+  transition: all 0.3s ease;
+}
+
+.step.active {
+  background: #6200ea;
+  color: white;
+  font-weight: bold;
+}
+
+.content {
+  background: white;
+  padding: 30px;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  width: 300px;
+}
+
+.step-content {
+  display: none;
+}
+
+.step-content.active {
+  display: block;
+}
+
+h2 {
+  font-size: 18px;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+button {
+  padding: 10px 15px;
+  margin: 10px;
+  border: none;
+  background: #6200ea;
+  color: white;
+  cursor: pointer;
+  border-radius: 5px;
+  font-size: 14px;
+  transition: background 0.3s ease;
+}
+
+button:hover {
+  background: #3700b3;
+  color: #fff;
+}

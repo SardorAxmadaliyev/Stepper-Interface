@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="stepper-container">
+        <button class="step active">1 Choose title</button>
+        <button class="step">2 Choose description</button>
+        <button class="step">3 Confirm data</button>
+    </div>
+
+    <div class="content">
+        <div class="step-content active">
+            <h2>Choose title content</h2>
+            <button id="submit-title">Submit Title</button>
+        </div>
+        <div class="step-content">
+            <h2>Choose description content</h2>
+            <button id="backStep1">Back</button>
+            <button id="submitDescription">Submit Description</button>
+        </div>
+        <div class="step-content">
+            <h2>Are you happy now?</h2>
+            <button id="noGoBack">No, Go Back</button>
+            <button id="yesGoAhead">Yes, Go Ahead</button>
+        </div>
+        <div class="step-content" id="finalStep">
+            <h2>OK, we're done. Thanks for sending us your data!</h2>
+        </div>
+    </div>
+
+    <script src="js/script.js"></script>
+</body>
+</html>
