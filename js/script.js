@@ -5,7 +5,11 @@ const finalStep = document.getElementById("finalStep");
 
 function updateStep() {
     steps.forEach((step, index) => {
-        step.classList.toggle("active", index === currentStep);
+        if (index === 0 || index <= currentStep) {
+            step.classList.add("active");
+        } else {
+            step.classList.remove("active");
+        }
     });
 
     stepContents.forEach((content, index) => {
@@ -15,41 +19,48 @@ function updateStep() {
     finalStep.style.display = currentStep === 3 ? "block" : "none";
 }
 
-function changeStep(nextStep) {
-    if ((currentStep === 3 || nextStep === currentStep + 1) || (nextStep === currentStep - 1)) {
-        currentStep = nextStep;
+
+document.getElementById("submit-title").addEventListener("click", () => {
+    currentStep = 1;
+    updateStep();
+});
+
+document.getElementById("submitDescription").addEventListener("click", () => {
+    if (currentStep === 1) {
+        currentStep = 2;
         updateStep();
     }
-}
+});
+
+document.getElementById("backStep1").addEventListener("click", () => {
+    if (currentStep === 1 || currentStep === 2) {
+        currentStep--;
+        updateStep();
+    }
+});
+
+document.getElementById("noGoBack").addEventListener("click", () => {
+    currentStep = 1;
+    updateStep();
+});
+
+document.getElementById("yesGoAhead").addEventListener("click", () => {
+    if (currentStep === 2) {
+        currentStep = 3;
+        updateStep();
+    }
+});
+
 
 steps.forEach((step, index) => {
     step.addEventListener("click", () => {
-        if (currentStep === 3 || index === currentStep + 1 || index === currentStep - 1) {
+        if ((index === 1 && currentStep >= 1) ||
+            (index === 2 && currentStep >= 2) ||
+            (index === 3 && currentStep === 3)) {
             currentStep = index;
             updateStep();
         }
     });
-});
-
-document.getElementById("submit-title").addEventListener("click", () => {
-    changeStep(1);
-});
-
-document.getElementById("backStep1").addEventListener("click", () => {
-    changeStep(0);
-});
-
-document.getElementById("submitDescription").addEventListener("click", () => {
-    changeStep(2);
-});
-
-document.getElementById("noGoBack").addEventListener("click", () => {
-    changeStep(1);
-});
-
-document.getElementById("yesGoAhead").addEventListener("click", () => {
-    currentStep = 3;
-    updateStep();
 });
 
 updateStep();
